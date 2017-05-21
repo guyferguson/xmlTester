@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Upload D2A XML File";
+}
+
+<h2>Upload a D2A xml return file</h2>
+
+@using (Html.BeginForm("UploadFile", "DisplayXML", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+        <input type="submit" value="Upload" />
+
+        @ViewBag.Message
+
+    </div>
+
+
+} 

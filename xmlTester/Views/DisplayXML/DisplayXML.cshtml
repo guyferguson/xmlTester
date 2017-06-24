@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "DisplayXMl";
+    ViewBag.Title = "DisplayXML";
 }
 @using xmlTester.Models;
 @model List<xmlTester.Models.form>
@@ -9,23 +9,26 @@
         <tr class="table-active thead-inverse">
             <th>Form Code</th>
             <th>Form Name</th>
-            <th>@ViewBag.FileName</th>
+            <th>D2A Identifier</th>
+            <th>Item Description</th>
             <th class="alert-info">@ViewBag.PeriodShort</th>
             
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model)    //
         {
             <tr class="clickable" data-toggle="collapse" id="@item.code" data-target=".@item.code">
                 <td><i class="glyphicon glyphicon-plus"></i>@item.code</td>
                 <td>@item.name</td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>  
             foreach (var subItem in @item.items)
             {
                 <tr class="collapse @item.code">
+                    <td></td>
                     <td></td>
                     <td>@subItem.code</td>
                     <td>@subItem.type</td>

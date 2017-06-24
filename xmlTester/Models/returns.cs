@@ -12,6 +12,7 @@ namespace xmlTester.Models
 
         [XmlAttribute("entityName")]
         public string entityName { get; set; }
+
         [XmlAttribute("entity")]    //ABN
         public string entity { get; set; } 
     }

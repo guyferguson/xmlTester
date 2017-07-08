@@ -25,7 +25,7 @@ namespace xmlTester.Controllers
         public ActionResult DisplayXML(string _Filename)
         {
            
-            var data = new List<form>();
+            var data = new List<FormModel>();
             var data_d2a = new List<returnListType>();
             //get data from source
             data = ReturnData(_Filename);
@@ -35,11 +35,11 @@ namespace xmlTester.Controllers
 
 
 
-        public List<form> ReturnData(string _FileName)
+        public List<FormModel> ReturnData(string _FileName)
         {
             //get file path from server
 
-            List<form> returns = new List<form>();
+            List<FormModel> returns = new List<FormModel>();
             if (string.IsNullOrEmpty(_FileName))
             {
                 _FileName = "ClubMar17new forms.xml";
@@ -65,7 +65,7 @@ namespace xmlTester.Controllers
 
                 List<formItems> tempList = new List<formItems>();
 
-                returns.Add(new form
+                returns.Add(new FormModel
                 {
                     name = node.Attributes["name"].Value,
                     code = node.Attributes["code"].Value,
@@ -95,11 +95,11 @@ namespace xmlTester.Controllers
             return returns;
         }
 
-        public List<form> ReturnData()
+        public List<FormModel> ReturnData()
         {
             //get file path from server
 
-            List<form> returns = new List<form>();
+            List<FormModel> returns = new List<FormModel>();
             XmlDocument doc = new XmlDocument();
             String filename = "Club Mar17v2.xml";
             doc.Load(Path.Combine(Server.MapPath("~/XMLfiles/"), filename));
@@ -122,7 +122,7 @@ namespace xmlTester.Controllers
 
                 List<formItems> tempList = new List<formItems>();
 
-                returns.Add(new form
+                returns.Add(new FormModel
                 {
                     name = node.Attributes["name"].Value,
                     code = node.Attributes["code"].Value,

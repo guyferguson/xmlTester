@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Upload Additional File";
+
+}
+
+<h2>Add a further D2A xml return file</h2>
+<table class="table table-responsive table-bordered hover">
+    <thead style="background-color:Highlight">
+        <tr class="table-active thead-inverse">
+            <th>Time uploaded</th>
+            <th>Period</th>
+            <th class="alert-info"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)    //
+        {
+            <tr class="clickable" data-toggle="collapse" id="@item.code" data-target=".@item.code">
+                <td><i class="glyphicon glyphicon-plus"></i>@item.code</td>
+                <td>@item.name</td>
+                <td></td>
+                
+            </tr>
+   
+
+            
+        }
+    </tbody>
+</table>
+    @using (Html.BeginForm("UploadFile", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+        <div>
+            @Html.TextBox("file", "", new { type = "file" }) <br />
+
+            <input type="submit" value="Upload" />
+
+            @ViewBag.Message
+
+        </div>
+}

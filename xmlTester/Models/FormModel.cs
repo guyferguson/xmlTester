@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace xmlTester.Models
 {
@@ -14,8 +14,11 @@ namespace xmlTester.Models
         public DateTime period{ get; set; }
 
     }
-    public class form
+    public class FormModel
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
         public string code { get; set; }
         public string name { get; set; }
         public List<formItems> items { get; set; }
@@ -24,6 +27,9 @@ namespace xmlTester.Models
 
     public class formItems
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
         public string code { get; set; }
         public string type { get; set; }
         public int value { get; set; }

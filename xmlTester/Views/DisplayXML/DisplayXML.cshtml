@@ -2,13 +2,16 @@
     ViewBag.Title = "DisplayXML";
 }
 @using xmlTester.Models;
-@model List<xmlTester.Models.form>
-<h2>APRA forms - @ViewBag.Name  - @ViewBag.Fund  - @ViewBag.Period</h2>
+@model List<xmlTester.Models.FormModel>
+<h2>APRA things - @ViewBag.Name  - @ViewBag.Fund  - @ViewBag.Period</h2>
+<div class="container col-lg-offset-6" >
+    <span class="navbar-static-top" ><input type="button" class="btn-block btn-primary" value="Add files to compare" onclick="location.href='@Url.Action("UploadAdditionalFile","UploadFile")'" /></span>
+</div>
 <table class="table table-responsive table-bordered hover">
     <thead style="background-color:Highlight">
         <tr class="table-active thead-inverse">
-            <th>Form Code</th>
-            <th>Form Name</th>
+            <th>Thing Code</th>
+            <th>Thing Name</th>
             <th>D2A Identifier</th>
             <th>Item Description</th>
             <th class="alert-info">@ViewBag.PeriodShort</th>

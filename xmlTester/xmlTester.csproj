@@ -172,15 +172,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UploadFileController.cs" />
+    <Compile Include="DAL\d2aComparatorContext.cs" />
+    <Compile Include="DAL\d2aComparatorInitialiser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\form.cs" />
-    <Compile Include="Models\FormList.cs" />
-    <Compile Include="Models\returns.cs" />
+    <Compile Include="Models\d2a_SessionModel.cs" />
+    <Compile Include="Models\FormModel.cs" />
+    <Compile Include="Models\FormListModel.cs" />
+    <Compile Include="Models\FundModel.cs" />
+    <Compile Include="Models\d2a_ReturnSetModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\d2a_UserInfoModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -193,6 +199,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -242,7 +249,7 @@
     <Content Include="Views\DisplayXML\DisplayXML.cshtml" />
     <Content Include="Views\DisplayXML\UploadFile.cshtml" />
     <Content Include="Views\DisplayXML\Index.cshtml" />
-    <Content Include="Views\UploadFile\UploadFile.cshtml" />
+    <Content Include="Views\UploadFile\UploadAdditionalFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

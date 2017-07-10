@@ -11,7 +11,7 @@ tmp/
 *.pdf
 *.bak
 *.swp
-*.sln
+#*.sln
 *~.nib
 local.properties
 .classpath

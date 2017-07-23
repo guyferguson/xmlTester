@@ -77,14 +77,25 @@ namespace xmlTester.Controllers
                 foreach (XmlNode itemNode in node.SelectNodes("./group/item"))
                 {   //loop through each item in the form
                     int num;
-                    if (int.TryParse(itemNode.InnerText, NumberStyles.AllowThousands,
-                                     CultureInfo.InvariantCulture, out num))
+                    if (int.TryParse(itemNode.InnerText, NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out num))
+                    {
                         tempList.Add(new formItems
                         {
                             code = itemNode.Attributes["code"].Value,
                             type = itemNode.Attributes["type"].Value,
                             value = num
                         });
+                     }
+                        else
+                    {
+                        tempList.Add(new formItems
+                        {
+                            code = itemNode.Attributes["code"].Value,
+                            type = itemNode.Attributes["type"].Value,
+                            value = 0
+                        });
+                    }
+                        ;
                 }
 
             }

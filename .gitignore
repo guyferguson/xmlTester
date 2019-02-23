@@ -218,3 +218,8 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+##Added by GF 230219 ####
+## VS 2017 stuff        #
+#########################
+.vs/

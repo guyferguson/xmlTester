@@ -10,8 +10,8 @@
 <table class="table table-responsive table-bordered hover">
     <thead style="background-color:Highlight">
         <tr class="table-active thead-inverse">
-            <th>Thing Code</th>
-            <th>Thing Name</th>
+            <th>Form Code</th>
+            <th>Form Name</th>
             <th>D2A Identifier</th>
             <th>Item Description</th>
             <th class="alert-info">@ViewBag.PeriodShort</th>
@@ -21,7 +21,7 @@
     <tbody>
         @foreach (var item in Model)    //
         {
-            <tr class="clickable" data-toggle="collapse" id="@item.code" data-target=".@item.code">
+            <tr class="clickable" data-toggle="collapse" href="#@item.code" data-target="#@item.code">  
                 <td><i class="glyphicon glyphicon-plus"></i>@item.code</td>
                 <td>@item.name</td>
                 <td></td>
@@ -30,7 +30,7 @@
             </tr>  
             foreach (var subItem in @item.items)
             {
-                <tr class="collapse @item.code">
+                <tr class ="collapse" id="@item.code">
                     <td></td>
                     <td></td>
                     <td>@subItem.code</td>

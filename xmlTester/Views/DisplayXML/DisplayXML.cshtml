@@ -2,44 +2,60 @@
     ViewBag.Title = "DisplayXML";
 }
 @using xmlTester.Models;
-@model List<xmlTester.Models.FormModel>
-<h2>APRA things - @ViewBag.Name  - @ViewBag.Fund  - @ViewBag.Period</h2>
+@model xmlTester.Models.csReturn
+<h2>APRA forms -  @Model.fo.entityName  - @Model.fo.entity  -  @Model.fo.period.Date.ToString("MMM yy")</h2>
 <div class="container col-lg-offset-6" >
     <span class="navbar-static-top" ><input type="button" class="btn-block btn-primary" value="Add files to compare" onclick="location.href='@Url.Action("UploadAdditionalFile","UploadFile")'" /></span>
 </div>
 <table class="table table-responsive table-bordered hover">
     <thead style="background-color:Highlight">
         <tr class="table-active thead-inverse">
-            <th>Form Code</th>
-            <th>Form Name</th>
-            <th>D2A Identifier</th>
+            <th>Thing Code</th>
+            <th>Thing Name</th>
             <th>Item Description</th>
+            <th>D2A Identifier</th>
             <th class="alert-info">@ViewBag.PeriodShort</th>
-            
+            <th class="collapse"></th>
+            <th class="collapse"></th>
+            <th class="collapse"></th>
+            <th class="collapse"></th>
+            <th class="collapse"></th>
+
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)    //
+        @foreach (var f in Model.fms)
         {
-            <tr class="clickable" data-toggle="collapse" href="#@item.code" data-target="#@item.code">  
-                <td><i class="glyphicon glyphicon-plus"></i>@item.code</td>
-                <td>@item.name</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>  
-            foreach (var subItem in @item.items)
-            {
-                <tr class ="collapse" id="@item.code">
-                    <td></td>
-                    <td></td>
-                    <td>@subItem.code</td>
-                    <td>@subItem.type</td>
-                    <td>@subItem.value</td>
-
-                </tr>
-
+        <tr class="clickable" data-toggle="collapse" id="@f.code" data-target=".@f.code">
+            <td><i class="glyphicon glyphicon-plus"></i>@f.code</td>
+            <td>@f.name</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+        </tr>
+        foreach (var subItem in f.items)
+        {
+        <tr class="collapse @f.code">
+            <td></td>
+            <td></td>
+            <td>@subItem.type</td>
+            @foreach (var k in subItem.codeVals) {
+            <td>@k.Key</td>
+            <td>@k.Value</td>
             }
+            <td class="collapse">@subItem.data_type</td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+            <td class="collapse"></td>
+        </tr>
+
+        }
         }
     </tbody>
 </table>
